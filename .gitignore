@@ -4,3 +4,5 @@ components/conection.php
 # Ignorar carpetas del sistema operativo o editores
 .DS_Store
 .vscode/
+
+.gitignore
