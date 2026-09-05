@@ -64,10 +64,13 @@ error_reporting(E_ALL);
                 }
                 $stmt_insert->close();
             } else {
-                foreach($errors as $error) {
-                    echo "<p style='color:red;'>$error</p>";
+                if (session_status() == PHP_SESSION_NONE) {
+                    session_start();
                 }
-                echo "<br><a href='register'>Volver al registro</a>";
+                
+                $_SESSION['errores_registro'] = $errors;
+                header("Location: register");
+                exit();
             }
         } else {
             header("Location: register");

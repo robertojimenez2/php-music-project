@@ -3,6 +3,14 @@ require_once 'components/conection.php';
 
 $query_countries = "SELECT  code, name FROM paises ORDER BY name ASC";
 $result_countries = $conexion->query($query_countries);
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+$errores = $_SESSION['errores_registro'] ?? [];
+unset($_SESSION['errores_registro']); 
+
    
 ?>
 <!DOCTYPE html>
@@ -21,6 +29,16 @@ $result_countries = $conexion->query($query_countries);
         <section class="auth-formulario">
             <h2>Registrate</h2>
             <p class="subtitulo">Completa el formulario para crear tu cuenta.</p>
+
+            <?php if (!empty($errores)): ?>
+                <div class="alerta-error">
+                    <ul>
+                        <?php foreach ($errores as $error): ?>
+                            <li><?php echo $error; ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            <?php endif; ?>
 
             <form action="register_process" method="POST" class="formulario">
                 <div class="grupo-input">
