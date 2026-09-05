@@ -1,5 +1,11 @@
 <?php
-// require_once 'includes/conexion.php'; // Lo descomentaremos cuando conectemos la BD
+    require_once 'components/conection.php'; 
+
+    if(session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+    $errores_login = $_SESSION['errores_login'] ?? [];
+    unset($_SESSION['errores_login']);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -12,7 +18,6 @@
 <body class="pantalla-ingreso">
 
     <main class="contenedor-auth">
-        <!-- Panel Izquierdo: Información de la App -->
         <section class="auth-info">
             <div class="info-contenido">
                 <h1>AudioVault</h1>
@@ -21,10 +26,19 @@
             </div>
         </section>
 
-        <!-- Panel Derecho: Formulario de Login -->
         <section class="auth-formulario">
             <h2>Iniciar Sesión</h2>
             <p class="subtitulo">Ingresa tus credenciales para acceder a tu catálogo.</p>
+
+            <?php if (!empty($errores_login)): ?>
+                <div class="alerta-error">
+                    <ul>
+                        <?php foreach ($errores_login as $error): ?>
+                            <li><?php echo $error; ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            <?php endif; ?>
 
             <form action="login_process.php" method="POST" class="formulario">
                 <div class="grupo-input">
