@@ -41,7 +41,7 @@
             </form>
 
             <div class="auth-enlaces">
-                <p>¿Aún no tienes una cuenta? <a href="register.php">Crea una aquí</a></p>
+                <p>¿Aún no tienes una cuenta? <a href="register">Crea una aquí</a></p>
             </div>
         </section>
     </main>

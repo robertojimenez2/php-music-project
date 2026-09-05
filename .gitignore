@@ -1,0 +1,6 @@
+# Ignorar credenciales y configuraciones locales
+components/conecion.php
+
+# Ignorar carpetas del sistema operativo o editores
+.DS_Store
+.vscode/

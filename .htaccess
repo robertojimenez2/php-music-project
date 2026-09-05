@@ -1,0 +1,10 @@
+ErrorDocument 404 /musica/404.php
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-d
+# Y si el archivo con extensión .php existe
+RewriteCond %{REQUEST_FILENAME}\.php -f
+
+# Entonces oculta el .php en la URL
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
