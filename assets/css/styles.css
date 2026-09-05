@@ -1,0 +1,172 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body.pantalla-ingreso {
+    background-color: #0a0a0a;
+    color: #e0e0e0;
+    /* Centrado perfecto en toda la pantalla */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: radial-gradient(circle at top right, #1f1f1f, #0a0a0a);
+}
+
+/* Tarjeta principal que contiene ambas secciones */
+.contenedor-auth {
+    display: flex;
+    background-color: #141414;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    width: 100%;
+    max-width: 900px;
+    min-height: 500px;
+}
+
+/* --- Panel Izquierdo (Información) --- */
+.auth-info {
+    flex: 1;
+    background: linear-gradient(135deg, #1db954 0%, #127c36 100%);
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+}
+
+.auth-info h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.auth-info p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.auth-info .detalle {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+}
+
+/* --- Panel Derecho (Formulario) --- */
+.auth-formulario {
+    flex: 1;
+    padding: 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.auth-formulario h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.subtitulo {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+/* Estilos de los inputs */
+.grupo-input {
+    margin-bottom: 1.5rem;
+}
+
+.grupo-input label {
+    display: block;
+    font-size: 0.85rem;
+    color: #b3b3b3;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.grupo-input input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background-color: #242424;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.grupo-input input:focus {
+    outline: none;
+    border-color: #1db954;
+    box-shadow: 0 0 0 2px rgba(29, 185, 84, 0.2);
+}
+
+/* Botón principal */
+.btn-principal {
+    width: 100%;
+    background-color: #1db954;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-principal:hover {
+    background-color: #1ed760;
+}
+
+.btn-principal:active {
+    transform: scale(0.98);
+}
+
+/* Enlaces inferiores */
+.auth-enlaces {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #a0a0a0;
+}
+
+.auth-enlaces a {
+    color: #1db954;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.auth-enlaces a:hover {
+    color: #1ed760;
+    text-decoration: underline;
+}
+
+/* Responsive: Apilar en pantallas pequeñas */
+@media (max-width: 768px) {
+    .contenedor-auth {
+        flex-direction: column;
+        max-width: 400px;
+    }
+    
+    .auth-info {
+        padding: 2rem;
+        text-align: center;
+    }
+    
+    .auth-formulario {
+        padding: 2rem;
+    }
+}
